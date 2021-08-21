@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="PL.Views.RegistrationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:components1="clr-namespace:PasswordBoxMVVM.Components;assembly=PasswordBoxMVVM"
+            d:DesignHeight="450"
+            d:DesignWidth="800"
+            mc:Ignorable="d">
+    <Grid
+        MaxWidth="1000"
+        Margin="20"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            FontSize="25"
+            Text="Registration" />
+
+        <StackPanel Grid.Row="1" Margin="0 20 0 0">
+            <StackPanel>
+                <TextBlock Text="Firstname" />
+                <TextBox Text="{Binding Firstname}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0 10 0 0">
+                <TextBlock Text="Surname" />
+                <TextBox Text="{Binding Surname}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0 10 0 0">
+                <TextBlock Text="Lastname" />
+                <TextBox Text="{Binding Lastname}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0 10 0 0">
+                <TextBlock Text="Login" />
+                <TextBox Text="{Binding Login}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0 10 0 0">
+                <TextBlock Text="Password" />
+                <components1:BindablePasswordBox Password="{Binding Password}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Margin="0 10 0 0">
+                <TextBlock Text="Password confirm " />
+                <components1:BindablePasswordBox Password="{Binding PasswordConfirm}" />
+            </StackPanel>
+        </StackPanel>
+
+        <Button
+            Grid.Row="2"
+            Margin="0 20 0 0"
+            Padding="5 2"
+            HorizontalAlignment="Left"
+            Command="{Binding RegistrationCommand}"
+            Content="Registration" />
+    </Grid>
+</UserControl>
