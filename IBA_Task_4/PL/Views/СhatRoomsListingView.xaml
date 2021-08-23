@@ -25,7 +25,7 @@
         <ListView
             Grid.Row="1"
             Margin="600,10,0,0"
-            ItemsSource="{Binding ChatRooms}" SelectionChanged="ListView_SelectionChanged">
+            ItemsSource="{Binding ChatRooms}">
             <ListView.View>
                 <GridView>
 

@@ -9,10 +9,12 @@ namespace BLL.ViewModels
         public string WelcomeMessage => "Welcome to the task scheduler.";
 
         public ICommand NavigateLoginCommand { get; }
+        public ICommand NavigateRegistrationCommand { get; }
 
-        public HomeViewModel(INavigationService loginNavigationService)
+        public HomeViewModel(INavigationService loginNavigationService, INavigationService registrationNavigationService)
         {
             NavigateLoginCommand = new NavigateCommand(loginNavigationService);
+            NavigateRegistrationCommand = new NavigateCommand(registrationNavigationService);
         }
     }
 }

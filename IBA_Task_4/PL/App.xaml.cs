@@ -32,22 +32,25 @@ namespace PL
             services.AddSingleton<UsersStore>();
             services.AddSingleton<TasksStore>();
             services.AddSingleton<ChatRoomsStore>();
+            services.AddSingleton<UserService>();
+            //services.AddDbContext<DAL.Context.AppDbContext>();
 
             services.AddSingleton<INavigationService>(s => CreateHomeNavigationService(s));
             services.AddSingleton<CloseModalNavigationService>();
 
-            services.AddTransient<HomeViewModel>(s => new HomeViewModel(CreateLoginNavigationService(s)));
+            services.AddTransient<HomeViewModel>(s => new HomeViewModel(CreateLoginNavigationService(s),
+                CreateRegistrationNavigationService(s)));
             services.AddTransient<AccountViewModel>(s => new AccountViewModel(
                 s.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(s)));
             services.AddTransient<LoginViewModel>(s => new LoginViewModel(
                 s.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(s),
-               s.GetRequiredService<UserService>()));
+                _host.Services.GetRequiredService<IUserService>()));
             services.AddTransient<RegistrationViewModel>(s => new RegistrationViewModel(
                 s.GetRequiredService<AccountStore>(),
                 CreateHomeNavigationService(s),
-               s.GetRequiredService<UserService>()));
+               _host.Services.GetRequiredService<IUserService>()));
 
 
             services.AddTransient<ProjectsListingViewModel>(s => new ProjectsListingViewModel(

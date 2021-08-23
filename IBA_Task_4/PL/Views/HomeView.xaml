@@ -2,9 +2,7 @@
     x:Class="PL.Views.HomeView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:components="clr-namespace:PL.Components"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:PL.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -23,7 +21,7 @@
 
         <TextBlock
             Grid.Row="1"
-            Margin="0 20 0 0"
+            Margin="0 30 0 0"
             Text="{Binding WelcomeMessage}" />
 
         <Button
@@ -32,6 +30,14 @@
             Padding="5 2"
             HorizontalAlignment="Left"
             Command="{Binding NavigateLoginCommand}"
-            Content="Start" />
+            Content="Login" />
+
+        <Button
+            Grid.Row="2"
+            Margin="50 20 0 0"
+            Padding="5 2"
+            HorizontalAlignment="Left"
+            Command="{Binding NavigateRegistrationCommand}"
+            Content="Registration" />
     </Grid>
 </UserControl>

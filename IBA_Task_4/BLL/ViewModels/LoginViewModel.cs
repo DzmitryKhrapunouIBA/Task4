@@ -35,7 +35,6 @@ namespace BLL.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
-
         public ICommand LoginCommand { get; }
 
         public LoginViewModel(AccountStore accountStore, INavigationService loginNavigationService, IUserService userService)

@@ -36,7 +36,7 @@
                 <views:TaskListingView />
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:ChatRoomsListingViewModel}">
-                <views:ChatRoomsListingView />
+                <views:СhatRoomsListingView />
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
                 <components:Layout />

@@ -1,5 +1,6 @@
 ﻿using BLL.Contracts;
 using BLL.Models;
+using BLL.Services;
 using BLL.Stores;
 using BLL.ViewModels;
 using DAL.Models;
@@ -23,8 +24,10 @@ namespace BLL.Commands
 
         public override void Execute(object parameter)
         {
-            var user = new User(_viewModel.FirstName, _viewModel.LastName, _viewModel.SurName, _viewModel.Login, _viewModel.Password);
-            
+            var password = AuthService.GetHash(_viewModel.Password);
+
+            var user = new User(_viewModel.FirstName, _viewModel.LastName, _viewModel.SurName, _viewModel.Login, password);
+
             _userService.Create(user);
 
             Account account = new Account()

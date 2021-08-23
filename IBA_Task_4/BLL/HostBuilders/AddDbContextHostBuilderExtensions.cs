@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.IO;
 
 namespace BLL.HostBuilders
 {
@@ -13,8 +14,16 @@ namespace BLL.HostBuilders
 
         public static IHostBuilder AddDbContext(this IHostBuilder host)
         {
+            var rootPath = Directory.GetParent(
+                Directory.GetParent(
+                    Directory.GetParent(
+                        Directory.GetParent(
+                            Directory.GetParent(
+                                AppDomain.CurrentDomain.BaseDirectory).ToString()).ToString()).ToString()).ToString()).ToString();
+            var path = Path.Combine(rootPath,"BLL");
+
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                        .SetBasePath(path)
                         .AddJsonFile("appsettings.json")
                         .Build();
 

@@ -25,7 +25,7 @@
         <ListView
             Grid.Row="1"
             Margin="200,10,200,0"
-            ItemsSource="{Binding Tasks}" SelectionChanged="ListView_SelectionChanged">
+            ItemsSource="{Binding Tasks}">
             <ListView.View>
                 <GridView>
 

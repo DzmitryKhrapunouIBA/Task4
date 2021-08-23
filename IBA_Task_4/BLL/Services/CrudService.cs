@@ -1,6 +1,5 @@
 ﻿
 using BLL.Contracts;
-using DAL.Context;
 using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -123,7 +122,7 @@ namespace BLL.Services
         /// <exception cref="InvalidOperationException">Throw at single or default </exception>
         public virtual T Get(Expression<Func<T, bool>> func)
         {
-            return Entry.SingleOrDefault(func);
+            return Entry.FirstOrDefault(func);
         }
 
         public virtual bool Update(T item)

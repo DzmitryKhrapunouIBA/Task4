@@ -25,7 +25,7 @@
         <ListView
             Grid.Row="1"
             Margin="100,10,600,0"
-            ItemsSource="{Binding Users}" SelectionChanged="ListView_SelectionChanged">
+            ItemsSource="{Binding Users}">
             <ListView.View>
                 <GridView>
 
